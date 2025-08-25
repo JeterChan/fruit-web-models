@@ -31,7 +31,7 @@ module.exports = (mongoose) => {
         if(!this.isModified('password')) return next();
 
         try {
-            const salt = await bcrypt.genSalt(parseInt(process.env.SALT_ROUNDS));
+            const salt = await bcrypt.genSalt(parseInt(process.env.SALT_ROUNDS) || 14);
             this.password = await bcrypt.hash(this.password, salt);
             next();
         } catch (error) {

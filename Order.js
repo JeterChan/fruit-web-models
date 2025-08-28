@@ -35,6 +35,14 @@ module.exports = (mongoose) => {
         type: String,
         required: [true, '訂購人地址為必填'],
         trim: true
+      },
+      
+      // 訂購人郵遞區號
+      postalCode: {
+        type: String,
+        required: [true, '訂購人郵遞區號為必填'],
+        trim: true,
+        match: [/^\d{3,5}$/, '郵遞區號格式不正確']
       }
     },
     
@@ -59,6 +67,14 @@ module.exports = (mongoose) => {
         type: String,
         required: [true, '收件人地址為必填'],
         trim: true
+      },
+      
+      // 收件人郵遞區號
+      postalCode: {
+        type: String,
+        required: [true, '收件人郵遞區號為必填'],
+        trim: true,
+        match: [/^\d{3,5}$/, '郵遞區號格式不正確']
       }
     },
     
